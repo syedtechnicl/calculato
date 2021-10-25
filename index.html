@@ -10,11 +10,33 @@
 <center>
 <h1 style="text-decoration:underline;text-transform: capitaliz;text-decoration-style:dashed;text-decoration-color:red"><span style="color:red">Cal</span><sapn style="color:blue" >cul</sapn>ator</h1>
 <br>
+<!-- html  -->
+<div id = "clock" onload="currentTime()"></div>
+ <!-- end html -->
+<br>   
 <center><script>
- const a= new Date();
-document.write(a) 
+function currentTime() {
+  let date = new Date(); 
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
+if(hh > 12){
+      session = "PM";}
+hh = (hh < 10) ? "0" + hh : hh;
+mm = (mm < 10) ? "0" + mm : mm;
+   ss = (ss < 10) ? "0" + ss : ss;
+    
+   let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById("clock").innerText = time; 
+  let t = setTimeout(function(){ currentTime() }, 1000); 
+
+}
+
+currentTime();
 </script></center>
- <br>   
+ <br>
  <table class = "calculator" >
  <tr>
  <td colspan = "3"> <input class = "display-box" type = "text" id = "result" disabled /> </td>
